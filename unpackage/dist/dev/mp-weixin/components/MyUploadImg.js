@@ -19,6 +19,10 @@ const _sfc_main = {
     numberData: {
       type: Number,
       required: true
+    },
+    isUploadImgStyle: {
+      type: Boolean,
+      required: true
     }
   },
   setup(__props, { expose }) {
@@ -41,10 +45,10 @@ const _sfc_main = {
       console.log(longressIndex, "isainmtion", isainmtion.value);
       getPropety();
     }
-    let imageArr = common_vendor.reactive(["../static/logo.png"]);
+    let imageArr = common_vendor.reactive(["https://natu.zjqichuang.com/static/tongcheng/uploadImg.svg"]);
     async function uploadImgEvent() {
       let imgData = null;
-      if (imageArr[imageArr.length - 1] == "../static/logo.png") {
+      if (imageArr[imageArr.length - 1] == "https://natu.zjqichuang.com/static/tongcheng/uploadImg.svg") {
         imgData = props.numberData - (imageArr.length - 1);
       } else {
         common_vendor.index.showToast({
@@ -134,7 +138,9 @@ const _sfc_main = {
     });
     return (_ctx, _cache) => {
       return common_vendor.e({
-        a: common_vendor.f(common_vendor.unref(imageArr), (item, index, i0) => {
+        a: __props.isUploadImgStyle
+      }, __props.isUploadImgStyle ? common_vendor.e({
+        b: common_vendor.f(common_vendor.unref(imageArr), (item, index, i0) => {
           return {
             a: item,
             b: common_vendor.o(uploadImgBoxMousemove, index),
@@ -145,23 +151,53 @@ const _sfc_main = {
             g: common_vendor.o(uploadImgEvent, index)
           };
         }),
-        b: maxH.value,
-        c: maxW.value,
-        d: common_vendor.unref(isainmtion)
+        c: maxH.value,
+        d: maxW.value,
+        e: common_vendor.unref(isainmtion)
       }, common_vendor.unref(isainmtion) ? {} : {}, {
-        e: common_vendor.p({
+        f: common_vendor.p({
           name: "trash-fill",
           color: common_vendor.unref(colorIcon),
           size: "36"
         }),
-        f: common_vendor.t(common_vendor.unref(trashText)),
-        g: common_vendor.n(isShopBgc.value ? "" : "show"),
-        h: common_vendor.o(touchstartTrash),
-        i: common_vendor.o(uploadImgBoxTouchend),
-        j: common_vendor.o(uploadImgBoxClick)
+        g: common_vendor.t(common_vendor.unref(trashText)),
+        h: common_vendor.n(isShopBgc.value ? "" : "show"),
+        i: common_vendor.o(touchstartTrash),
+        j: common_vendor.o(uploadImgBoxTouchend),
+        k: common_vendor.o(uploadImgBoxClick)
+      }) : !__props.isUploadImgStyle ? common_vendor.e({
+        m: common_vendor.f(common_vendor.unref(imageArr), (item, index, i0) => {
+          return common_vendor.e({
+            a: item,
+            b: item != "https://natu.zjqichuang.com/static/tongcheng/uploadImg.svg"
+          }, item != "https://natu.zjqichuang.com/static/tongcheng/uploadImg.svg" ? {
+            c: "f7544660-1-" + i0,
+            d: common_vendor.p({
+              name: "close",
+              color: "#fff",
+              size: "12"
+            }),
+            e: common_vendor.o(($event) => deleteImg(index), index)
+          } : {}, {
+            f: index,
+            g: common_vendor.o(uploadImgEvent, index)
+          });
+        }),
+        n: common_vendor.unref(isainmtion)
+      }, common_vendor.unref(isainmtion) ? {} : {}, {
+        o: common_vendor.p({
+          name: "trash-fill",
+          color: common_vendor.unref(colorIcon),
+          size: "36"
+        }),
+        p: common_vendor.t(common_vendor.unref(trashText)),
+        q: common_vendor.n(isShopBgc.value ? "" : "show"),
+        r: common_vendor.o(touchstartTrash)
+      }) : {}, {
+        l: !__props.isUploadImgStyle
       });
     };
   }
 };
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-f7544660"], ["__file", "D:/ypgz/template/templeteP/components/MyUploadImg.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-f7544660"], ["__file", "D:/ypgz/template/Template-app/components/MyUploadImg.vue"]]);
 wx.createComponent(Component);

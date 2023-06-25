@@ -1,9 +1,10 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 if (!Math) {
-  MySearch();
+  (MySearch + MyUQRCode)();
 }
 const MySearch = () => "../../components/MySearch.js";
+const MyUQRCode = () => "../../components/UQRCode.js";
 const _sfc_main = {
   __name: "index",
   setup(__props) {
@@ -25,5 +26,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/ypgz/template/templeteP/pages/my/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/ypgz/template/Template-app/pages/my/index.vue"]]);
 wx.createPage(MiniProgramPage);

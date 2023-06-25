@@ -31,23 +31,26 @@ const _sfc_main = {
       emit("addressClick", true);
     };
     return (_ctx, _cache) => {
-      return {
-        a: common_vendor.p({
+      return common_vendor.e({
+        a: __props.isAddress
+      }, __props.isAddress ? {
+        b: common_vendor.p({
           name: "map",
           color: "#000",
           size: "16"
         }),
-        b: common_vendor.o(addressClick),
-        c: common_vendor.p({
+        c: common_vendor.o(addressClick)
+      } : {}, {
+        d: common_vendor.p({
           placeholder: __props.placeholder,
           disabled: "true",
           height: "68rpx",
           showAction: false
         }),
-        d: common_vendor.o(searchClick)
-      };
+        e: common_vendor.o(searchClick)
+      });
     };
   }
 };
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-e50ea3f3"], ["__file", "D:/ypgz/template/templeteP/components/MySearch.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-e50ea3f3"], ["__file", "D:/ypgz/template/Template-app/components/MySearch.vue"]]);
 wx.createComponent(Component);

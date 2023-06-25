@@ -6,13 +6,24 @@ require("../../common/qqmap-wx-jssdk.min.js");
 require("../../api/login.js");
 require("../../common/http.js");
 if (!Math) {
-  (MyHeader + MyUploadImg)();
+  (MyHeader + MySearch + MyUploadImg + MyTimeProp)();
 }
 const MyHeader = () => "../../components/MyHeader.js";
 const MyUploadImg = () => "../../components/MyUploadImg.js";
+const MySearch = () => "../../components/MySearch.js";
+const MyTimeProp = () => "../../components/MyTimeProp.js";
 const _sfc_main = {
   __name: "index",
   setup(__props, { expose }) {
+    common_vendor.onReady(() => {
+      var qr = new common_vendor.UQRCode();
+      qr.data = "aa";
+      qr.size = 200;
+      qr.make();
+      var canvasContext = common_vendor.index.createCanvasContext("qrcode", this);
+      qr.canvasContext = canvasContext;
+      qr.drawCanvas();
+    });
     function login() {
       common_vendor.index.navigateTo({
         url: "../components/login/index"
@@ -32,15 +43,26 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
-          leftTitle: "首页"
+          leftLogo: true
         }),
         b: common_vendor.p({
-          numberData: 9
+          isAddress: false
         }),
-        c: common_vendor.o(login)
+        c: common_vendor.p({
+          isAddress: true
+        }),
+        d: common_vendor.p({
+          numberData: 9,
+          isUploadImgStyle: true
+        }),
+        e: common_vendor.p({
+          numberData: 9,
+          isUploadImgStyle: false
+        }),
+        f: common_vendor.o(login)
       };
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/ypgz/template/templeteP/pages/index/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-1cf27b2a"], ["__file", "D:/ypgz/template/Template-app/pages/index/index.vue"]]);
 wx.createPage(MiniProgramPage);

@@ -1,5 +1,5 @@
 <template>
-	<view class="uploadImgBox" @touchend="uploadImgBoxTouchend" @longtap="uploadImgBoxClick">
+	<view class="uploadImgBox" @touchend="uploadImgBoxTouchend" @longtap="uploadImgBoxClick" v-if="isUploadImgStyle">
 		<view class="scollview">
 			<view class="item" @touchmove.stop="uploadImgBoxMousemove" @longpress.stop="longpressEvent(index)"
 				@touchend="touchendEvent" :class="[longressIndex == index && isainmtion ? 'imgAnimation': '']"
@@ -23,10 +23,29 @@
 			</view>
 		</view>
 	</view>
-	<view class="aaa"
-		style=" width: 10rpx; height: 10rpx; background-color: pink; position: absolute; top: 610px; left:120px;">
-
+	<view v-else-if="!isUploadImgStyle" class="uploadImgBox">
+		<view class="scollview">
+			<view style="position: relative;" class="item" v-for="(item,index) in imageArr" :key="index" @click="uploadImgEvent">
+				<image :src="item" mode=""></image>
+				<view class="itemprop"  v-if='item != "https://natu.zjqichuang.com/static/tongcheng/uploadImg.svg"'>
+					<view class="text"  @click.stop="deleteImg(index)">
+						<u-icon name="close" color="#fff" size="12"></u-icon>
+					</view>
+				</view>
+			</view>
+			<view v-if="isainmtion" class="item">
+				帅气
+			</view>
+		</view>
+		<view :class="[isShopBgc?'':'show']" @touchstart="touchstartTrash" class="prop">
+			<u-icon name="trash-fill" :color="colorIcon" size="36"></u-icon>
+			<view class="">
+				<!-- 拖入删除 -->
+				{{trashText}}
+			</view>
+		</view>
 	</view>
+
 </template>
 <script setup>
 	import {
@@ -56,6 +75,11 @@
 			type: Number,
 			required: true
 		},
+			
+		isUploadImgStyle:{
+			type:Boolean,
+			required:true
+		}
 	})
 	// 动效打开
 	let isainmtion = ref(false)
@@ -73,12 +97,12 @@
 	import {
 		uploadImg
 	} from '../common/common.js'
-	let imageArr = reactive(['../static/logo.png'])
+	let imageArr = reactive(['https://natu.zjqichuang.com/static/tongcheng/uploadImg.svg'])
 	async function uploadImgEvent() {
 		// 判断现在数组有多少数据   如果比用户规定的数据相等获取大于 就告知不可添加图  不过后面会做判断不会让他触发这个
 		// 但是如果小于 就需要限制用户可在添加几张图
 		let imgData = null
-		if (imageArr[imageArr.length - 1] == '../static/logo.png') {
+		if (imageArr[imageArr.length - 1] == 'https://natu.zjqichuang.com/static/tongcheng/uploadImg.svg') {
 			// imgData = props.numberData- imageArr.length +1
 			imgData = props.numberData - (imageArr.length - 1)
 		} else {
@@ -246,21 +270,21 @@
 		padding: 16rpx;
 	}
 
-	// .itemprop{
-	// 	position: absolute;
-	// 	top: -20rpx;
-	// 	right: -20rpx;
-	// 	width: 50rpx;
-	// 	box-sizing: border-box;
-	// 	height: 50rpx;
+	.itemprop{
+		position: absolute;
+		top: -20rpx;
+		right: -20rpx;
+		width: 50rpx;
+		box-sizing: border-box;
+		height: 50rpx;
 
-	// 	border-radius: 50%;
-	// 	background-color: #000;
-	// 	.text{
-	// 		position: absolute;
-	// 		top: 22rpx;
-	// 		right: 22rpx;
-	// 		// font-weight: 700;
-	// 	}
-	// }
+		border-radius: 50%;
+		background-color: #000;
+		.text{
+			position: absolute;
+			top: 22rpx;
+			right: 22rpx;
+			// font-weight: 700;
+		}
+	}
 </style>

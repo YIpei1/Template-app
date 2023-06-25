@@ -67,3 +67,18 @@
 .uploadImgBox.data-v-f7544660 {
   padding: 16rpx;
 }
+.itemprop.data-v-f7544660 {
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  width: 50rpx;
+  box-sizing: border-box;
+  height: 50rpx;
+  border-radius: 50%;
+  background-color: #000;
+}
+.itemprop .text.data-v-f7544660 {
+  position: absolute;
+  top: 22rpx;
+  right: 22rpx;
+}

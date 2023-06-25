@@ -3,6 +3,8 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "my-header": "../../components/MyHeader",
-    "my-upload-img": "../../components/MyUploadImg"
+    "my-upload-img": "../../components/MyUploadImg",
+    "my-search": "../../components/MySearch",
+    "my-time-prop": "../../components/MyTimeProp"
   }
 }

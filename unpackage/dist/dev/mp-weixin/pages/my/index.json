@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "uni-app",
   "usingComponents": {
-    "my-search": "../../components/MySearch"
+    "my-search": "../../components/MySearch",
+    "my-u-q-r-code": "../../components/UQRCode"
   }
 }

@@ -23,26 +23,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-e50ea3f3 {
+.item.data-v-8d4e2382 {
+  height: 88rpx;
   display: flex;
   padding: 0 16rpx;
-}
-.content .address.data-v-e50ea3f3 {
-  display: flex;
-  width: 140rpx;
-  height: 68rpx;
-  border-radius: 34rpx;
-  background-color: #f2f2f2;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-right: 16rpx;
-  padding: 0 16rpx;
-  font-size: 28rpx;
-}
-.content .address address_city.data-v-e50ea3f3 {
-  font-size: 26rpx;
-  font-weight: 400;
-}
-.content .search_box.data-v-e50ea3f3 {
-  flex: 1;
 }

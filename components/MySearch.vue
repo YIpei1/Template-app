@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<view class="address" @click="addressClick">
+		<view class="address" @click="addressClick" v-if="isAddress">
 			<view class="address_icon">
 				<u-icon name="map" color="#000" size="16"></u-icon>
 			</view>
@@ -46,7 +46,7 @@
 <style lang="scss" scoped>
 	.content {
 		display: flex;
-
+		padding: 0 16rpx;
 		.address {
 			display: flex;
 			width: 140rpx;
@@ -55,6 +55,7 @@
 			background-color: #f2f2f2;
 			justify-content: space-around;
 			align-items: center;
+			margin-right: 16rpx;
 			padding: 0 16rpx;
 			font-size: 28rpx;
 			address_city{
@@ -65,7 +66,7 @@
 
 		.search_box {
 			flex: 1;
-			padding: 0 16rpx;
+			// padding: 0 16rpx;
 		}
 	}
 </style>

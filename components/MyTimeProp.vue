@@ -7,9 +7,9 @@
 				<view>{{ date }}</view>
 			</picker>
 			--
-			<picker class="picker date" mode="date" :value="date" :start="startDate" :end="endDate"
-				@change="bindDateChange">
-				<view>{{ date }}</view>
+			<picker class="picker date" mode="date" :value="dateEnd" :start="date" :end="endDate"
+				@change="bindDateChange1">
+				<view>{{ dateEnd }}</view>
 			</picker>
 			
 			<!-- - -->
@@ -33,7 +33,8 @@
 				format: true
 			});
 			return {
-				date: currentDate,
+				date: '起始时间',
+				dateEnd:'截止时间',
 				timeStart: '14:00',
 				timeEnd: '16:00',
 				startDate:this.getDate('start'),
@@ -41,14 +42,22 @@
 			};
 		},
 		props: {
+			// 开始时间 可传入
 			startDate: {
 				type: String,
+				
 			}
 		},
 		methods: {
 			// 选择时间 日期
 			bindDateChange: function(e) {
 				this.date = e.target.value;
+				if(this.dateEnd != '截止时间'){
+					this.dateEnd =e.target.value;
+				}
+			},
+			bindDateChange1:function(e){
+				this.dateEnd = e.target.value;
 			},
 			getDate(type) {
 				const date = new Date();
