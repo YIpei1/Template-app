@@ -1,5 +1,5 @@
 <template>
-	
+
 	<!--  -->
 	<MyHeader :leftLogo='true'>
 
@@ -55,6 +55,7 @@
 		</view>
 		<canvas id="qrcode" canvas-id="qrcode" style="width: 200px;height: 200px;"></canvas>
 	</view>
+	
 	<view class="" style="" @click="login">
 		登陆
 	</view>
@@ -81,12 +82,12 @@
 		// 调用制作二维码方法
 		qr.make();
 		// 获取canvas上下文
-		var canvasContext = uni.createCanvasContext('qrcode',this); // 如果是组件，this必须传入
+		var canvasContext = uni.createCanvasContext('qrcode', this); // 如果是组件，this必须传入
 		// 设置uQRCode实例的canvas上下文
 		qr.canvasContext = canvasContext;
 		// 调用绘制方法将二维码图案绘制到canvas上
 		qr.drawCanvas();
-	
+
 	})
 	// 导入组件 - start
 	import MyHeader from "../../components/MyHeader.vue"
@@ -98,7 +99,7 @@
 	import {
 		getMapLocation
 	} from "../../common/common.js"
-	import {
+	import { 
 		GlobalStore
 	} from "../../store/index.js"
 

@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "uni-app",
   "usingComponents": {
-    "my-search": "../../components/MySearch",
-    "my-u-q-r-code": "../../components/UQRCode"
+    "signature": "../../components/MySignatureBox",
+    "u-button": "../../node-modules/uview-plus/components/u-button/u-button"
   }
 }

@@ -1,24 +1,34 @@
 <template>
-	<view class="content">
-		<my-search :isAddress='true' placeholder='不要提' @addressClick='addressClick' @searchClick='searchClick'></my-search>
-		<MyUQRCode/>
+	<view>
+		<signature :showCanvas="showCanvas" @closeCanvas="closeCanvas"></signature>
+		<u-button @click="sign">签名</u-button>
 	</view>
 </template>
-
-<script setup>
-	import MySearch from '../../components/MySearch.vue'
-	import MyUQRCode from '../../components/UQRCode.vue'
-	
-	const searchClick = e => {
-		console.log('searchClick>>>>>',e);
-	}
-	const addressClick = e => {
-		console.log('addressClick>>>>>>>>>>',e);
-	}
+<script>
+import signature from '@/components/MySignatureBox.vue';
+export default {
+	components: {
+		signature
+	},
+	data() {
+		return {
+		//打开canvas绘制签名
+			showCanvas: false,
+			//是否展示操作菜单
+			completionSignPath: '' //签名
+		}
+	},
+	methods: {
+			//隐藏canvas签名组件
+			closeCanvas(e) {
+				this.showCanvas = false;
+				if (!this.$isEmpty(e)) {
+					this.completionSignPath = e
+				}
+			},
+			sign() {
+				this.showCanvas = true;
+			}
+		}
+}
 </script>
-
-<style>
-	
-</style>
-
-
