@@ -1,13 +1,20 @@
 <template>
-	<!-- <view @click="getMapLocation">
-		{{address}}
-	</view> -->
+	
 	<!--  -->
 	<MyHeader :leftLogo='true'>
 
 	</MyHeader>
+	<view class="`">
+		<view class="title">
+			定位功能
+		</view>
+		<view @click="getMapLocation" style="margin-left: 16rpx;">
+			{{address}}
+		</view>
+	</view>
+
 	<!-- 搜索框  isAddress 是否需要定位功能-->
-	<view class="">
+	<view class="`">
 		<view class="title">
 			搜索框
 		</view>

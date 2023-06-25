@@ -45,21 +45,23 @@ const _sfc_main = {
         a: common_vendor.p({
           leftLogo: true
         }),
-        b: common_vendor.p({
+        b: common_vendor.t(common_vendor.unref(address)),
+        c: common_vendor.o((...args) => common_vendor.unref(common_common.getMapLocation) && common_vendor.unref(common_common.getMapLocation)(...args)),
+        d: common_vendor.p({
           isAddress: false
         }),
-        c: common_vendor.p({
+        e: common_vendor.p({
           isAddress: true
         }),
-        d: common_vendor.p({
+        f: common_vendor.p({
           numberData: 9,
           isUploadImgStyle: true
         }),
-        e: common_vendor.p({
+        g: common_vendor.p({
           numberData: 9,
           isUploadImgStyle: false
         }),
-        f: common_vendor.o(login)
+        h: common_vendor.o(login)
       };
     };
   }
