@@ -94,7 +94,7 @@
 	import MyUploadImg from "../../components/MyUploadImg.vue"
 	import MySearch from "../../components/MySearch.vue"
 	import MyTimeProp from "../../components/MyTimeProp.vue"
-	import MyUQRCode from "../../components/UQRCode.vue"
+
 	// 导入组件 -ends
 	import {
 		getMapLocation

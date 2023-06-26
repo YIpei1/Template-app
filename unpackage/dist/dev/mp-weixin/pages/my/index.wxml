@@ -1,1 +1,0 @@
-<view><signature wx:if="{{b}}" bindcloseCanvas="{{a}}" u-i="3c977a20-0" bind:__l="__l" u-p="{{b}}"></signature><u-button u-s="{{['d']}}" bindclick="{{c}}" u-i="3c977a20-1" bind:__l="__l">签名</u-button></view>

@@ -1,7 +1,4 @@
 {
   "navigationBarTitleText": "uni-app",
-  "usingComponents": {
-    "signature": "../../components/MySignatureBox",
-    "u-button": "../../node-modules/uview-plus/components/u-button/u-button"
-  }
+  "usingComponents": {}
 }
